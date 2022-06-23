@@ -1,14 +1,16 @@
 COBC = cobc
-COBFLAGS = -Wall -debug
+# COBFLAGS = -Wall -debug
+COBFLAGS = -Wall -O3
 
-OBJS = ttt.o negamax.o gamevalue.o 
+OBJS = negamax.o gamevalue.o 
 
 .SUFFIXES: .cbl
 
 .cbl.o:
 	$(COBC) $(COBFLAGS) -c $*.cbl
 
-all: $(OBJS)
+ttt: $(OBJS) Makefile ttt.cbl
+	$(COBC) $(COBFLAGS) -x -o ttt ttt.cbl $(OBJS)
 
 clean:
 	-rm -f *.o

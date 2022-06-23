@@ -2,10 +2,8 @@
        PROGRAM-ID. NegaMax IS RECURSIVE.
 
        DATA DIVISION.
-       WORKING-STORAGE SECTION.
-       01 v0 PIC S9.
-
        LOCAL-STORAGE SECTION.
+       01 v0 PIC S9.
        01 v PIC S9.
        01 r PIC 9.
        01 c PIC 9.
@@ -33,10 +31,13 @@
                        COMPUTE on-move EQUALS -on-move
                        CALL "NegaMax" USING BY REFERENCE state
                          RETURNING v0
+                       COMPUTE v0 EQUALS -v0
                        IF v0 GREATER THAN v THEN
                            MOVE v0 TO v
+                       END-IF
                        COMPUTE on-move EQUALS -on-move
                        MOVE 0 TO b-elem(r, c)
+                   END-IF
                END-PERFORM
            END-PERFORM
 
