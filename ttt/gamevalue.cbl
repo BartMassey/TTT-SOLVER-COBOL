@@ -16,7 +16,7 @@
            05 on-move PIC S9.
            05 board.
                10 b-row OCCURS 3 TIMES.
-                   15 b-elem PIC 9 OCCURS 3 TIMES.
+                   15 b-elem PIC S9 OCCURS 3 TIMES.
 
        PROCEDURE DIVISION USING BY REFERENCE state.
       *    Scan for wins.
@@ -92,7 +92,5 @@
 
       *    Position is a draw.
            MOVE 0 TO RETURN-CODE
-           GOBACK
-
-       STOP RUN.
+           GOBACK.
        END PROGRAM GameValue.
