@@ -6,7 +6,7 @@ COBFLAGS = -Wall -debug
 .cbl.o:
 	$(COBC) $(COBFLAGS) -c $*.cbl
 
-all: negamax.o
+all: negamax.o gamevalue.o
 
 clean:
 	-rm -f *.o
