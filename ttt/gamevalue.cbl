@@ -23,6 +23,8 @@
       *    Scan for wins.
            MOVE -1 TO side
            PERFORM 2 TIMES
+
+      *        Set up win value.
                COMPUTE side EQUALS -side
                MULTIPLY side BY on-move GIVING v
 
