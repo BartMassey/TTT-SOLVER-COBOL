@@ -6,6 +6,7 @@
        01 v0 PIC S9.
        01 v PIC S9.
        01 r PIC 9.
+       01 d-r PIC 9.
        01 c PIC 9.
 
        LINKAGE SECTION.
@@ -27,20 +28,39 @@
            PERFORM TEST AFTER VARYING r FROM 1 BY 1 UNTIL r = 3
                PERFORM TEST AFTER VARYING c FROM 1 BY 1 UNTIL c = 3
                    IF b-elem(r, c) EQUALS 0 THEN
-                       MOVE on-move TO b-elem(r, c)
+      *                Evaluate move with do-undo.
                        COMPUTE on-move EQUALS -on-move
+                       MOVE on-move TO b-elem(r, c)
                        CALL "NegaMax" USING BY REFERENCE state
                          RETURNING v0
                        COMPUTE v0 EQUALS -v0
+                       COMPUTE on-move EQUALS -on-move
+
+      *                Display current state and result.
+                       PERFORM ShowState
+                       DISPLAY v0
+
+                       MOVE 0 TO b-elem(r, c)
+
+      *                Capture maximum.
                        IF v0 GREATER THAN v THEN
                            MOVE v0 TO v
                        END-IF
-                       COMPUTE on-move EQUALS -on-move
-                       MOVE 0 TO b-elem(r, c)
                    END-IF
                END-PERFORM
            END-PERFORM
 
            MOVE v TO RETURN-CODE
            GOBACK.
+
+      *    Debugging: display state.
+           ShowState.
+           DISPLAY SPACE
+           DISPLAY on-move
+           PERFORM TEST AFTER VARYING d-r FROM 1 BY 1 UNTIL d-r = 3
+               DISPLAY b-elem(d-r, 1) WITH NO ADVANCING
+               DISPLAY " " b-elem(d-r, 2) WITH NO ADVANCING
+               DISPLAY " " b-elem(d-r, 3)
+           END-PERFORM.
+
        END PROGRAM NegaMax.

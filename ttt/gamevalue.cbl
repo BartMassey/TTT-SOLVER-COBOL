@@ -2,7 +2,7 @@
        PROGRAM-ID. GameValue.
 
        DATA DIVISION.
-       WORKING-STORAGE SECTION.
+       LOCAL-STORAGE SECTION.
        01 v PIC S9.
        01 side PIC S9.
        01 n PIC 9.
@@ -19,7 +19,6 @@
                    15 b-elem PIC S9 OCCURS 3 TIMES.
 
        PROCEDURE DIVISION USING BY REFERENCE state.
-           PERFORM ShowState
 
       *    Scan for wins.
            MOVE -1 TO side
@@ -95,13 +94,5 @@
       *    Position is a draw.
            MOVE 0 TO RETURN-CODE
            GOBACK.
-
-      *    Debugging: display state.
-           ShowState.
-           DISPLAY SPACE
-           DISPLAY on-move
-           PERFORM TEST AFTER VARYING r FROM 1 BY 1 UNTIL r = 3
-               DISPLAY b-elem(r, 1) " " b-elem(r, 2) " " b-elem(r, 3)
-           END-PERFORM.
 
        END PROGRAM GameValue.

@@ -2,7 +2,7 @@
        PROGRAM-ID. TTT.
 
        DATA DIVISION.
-       WORKING-STORAGE SECTION.
+       LOCAL-STORAGE SECTION.
        01 r PIC 9.
        01 c PIC 9.
        01 state.
