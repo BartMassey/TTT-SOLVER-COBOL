@@ -14,9 +14,12 @@
        01 v PIC S9.
 
        PROCEDURE DIVISION.
+      *   Do the calculation.
           CALL "NegaMax" USING BY REFERENCE state RETURNING v
           DISPLAY SPACE
           DISPLAY v
+
+      *   Validate that the invariant still holds.
           DISPLAY SPACE
           IF on-move IS NOT EQUAL TO 1 THEN
               DISPLAY "on-move = " on-move
@@ -28,5 +31,6 @@
                   END-IF
               END-PERFORM
           END-PERFORM
+
           STOP RUN.
        END PROGRAM TTT.

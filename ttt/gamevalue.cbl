@@ -19,7 +19,7 @@
                    15 b-elem PIC S9 OCCURS 3 TIMES.
 
        PROCEDURE DIVISION USING BY REFERENCE state.
-           PERFORM ShowState.
+           PERFORM ShowState
 
       *    Scan for wins.
            MOVE -1 TO side
