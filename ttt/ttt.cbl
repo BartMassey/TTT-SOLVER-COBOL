@@ -3,8 +3,6 @@
 
        DATA DIVISION.
        LOCAL-STORAGE SECTION.
-       01 r PIC 9.
-       01 c PIC 9.
        01 state.
            05 on-move PIC S9 VALUE 1.
            05 board.
