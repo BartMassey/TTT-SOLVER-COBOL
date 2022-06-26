@@ -2,7 +2,7 @@
        PROGRAM-ID. GameValue.
 
        DATA DIVISION.
-       LOCAL-STORAGE SECTION.
+       WORKING-STORAGE SECTION.
        01 v PIC S9.
        01 side PIC S9.
        01 n PIC 9.
