@@ -73,19 +73,19 @@
                PERFORM TEST AFTER VARYING c FROM 1 BY 1 UNTIL c = 3
                    IF b-elem(r, c) EQUALS 0 THEN
                        MOVE -2 TO result
-                       GOBACK
+                       EXIT PROGRAM
                    END-IF
                END-PERFORM
            END-PERFORM
 
       *    Position is a draw.
            MOVE 0 TO result
-           GOBACK.
+           EXIT PROGRAM.
 
            CheckWin.
            IF n EQUALS 3 THEN
                MOVE v TO result
-               GOBACK
+               EXIT PROGRAM
            END-IF.
 
            CheckSquare.

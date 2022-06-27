@@ -27,7 +27,7 @@
              BY REFERENCE v0
            IF v0 NOT EQUAL -2 THEN
                MOVE v0 TO result
-               GOBACK
+               EXIT PROGRAM
            END-IF
 
            MOVE -1 TO v
@@ -53,6 +53,6 @@
            END-PERFORM
 
            MOVE v TO result
-           GOBACK.
+           EXIT PROGRAM.
 
        END PROGRAM NegaMax.
