@@ -15,5 +15,7 @@ ttt: $(OBJS) Makefile
 ttt.o: ttt.cbl
 	$(COBC) $(COBFLAGS) -x -c ttt.cbl
 
+$(OBJS): state.cpy
+
 clean:
 	-rm -f *.o ttt
