@@ -16,12 +16,17 @@
            05 board.
                10 b-row OCCURS 3 TIMES.
                    15 b-elem PIC S9 OCCURS 3 TIMES.
+       01 result PIC S9.
 
-       PROCEDURE DIVISION USING BY REFERENCE state.
+       PROCEDURE DIVISION USING
+         BY REFERENCE state
+         BY REFERENCE result.
 
-           CALL "GameValue" USING BY REFERENCE state RETURNING v0
+           CALL "GameValue" USING
+             BY REFERENCE state
+             BY REFERENCE v0
            IF v0 NOT EQUAL -2 THEN
-               MOVE v0 TO RETURN-CODE
+               MOVE v0 TO result
                GOBACK
            END-IF
 
@@ -32,8 +37,9 @@
       *                Evaluate move with do-undo.
                        COMPUTE on-move EQUALS -on-move
                        MOVE on-move TO b-elem(r, c)
-                       CALL "NegaMax" USING BY REFERENCE state
-                         RETURNING v0
+                       CALL "NegaMax" USING
+                         BY REFERENCE state
+                         BY REFERENCE v0
                        COMPUTE v0 EQUALS -v0
                        COMPUTE on-move EQUALS -on-move
                        MOVE 0 TO b-elem(r, c)
@@ -46,7 +52,7 @@
                END-PERFORM
            END-PERFORM
 
-           MOVE v TO RETURN-CODE
+           MOVE v TO result
            GOBACK.
 
        END PROGRAM NegaMax.

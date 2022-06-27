@@ -16,8 +16,11 @@
            05 board.
                10 b-row OCCURS 3 TIMES.
                    15 b-elem PIC S9 OCCURS 3 TIMES.
+       01 result PIC S9.
 
-       PROCEDURE DIVISION USING BY REFERENCE state.
+       PROCEDURE DIVISION USING
+         BY REFERENCE state
+         BY REFERENCE result.
 
       *    Scan for wins.
            MOVE -1 TO side
@@ -69,19 +72,19 @@
            PERFORM TEST AFTER VARYING r FROM 1 BY 1 UNTIL r = 3
                PERFORM TEST AFTER VARYING c FROM 1 BY 1 UNTIL c = 3
                    IF b-elem(r, c) EQUALS 0 THEN
-                       MOVE -2 TO RETURN-CODE
+                       MOVE -2 TO result
                        GOBACK
                    END-IF
                END-PERFORM
            END-PERFORM
 
       *    Position is a draw.
-           MOVE 0 TO RETURN-CODE
+           MOVE 0 TO result
            GOBACK.
 
            CheckWin.
            IF n EQUALS 3 THEN
-               MOVE v TO RETURN-CODE
+               MOVE v TO result
                GOBACK
            END-IF.
 

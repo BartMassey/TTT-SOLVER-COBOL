@@ -12,8 +12,10 @@
        01 v PIC S9.
 
        PROCEDURE DIVISION.
-          CALL "NegaMax" USING BY REFERENCE state RETURNING v
-          DISPLAY v
+           CALL "NegaMax" USING
+             BY REFERENCE state
+             BY REFERENCE v
+           DISPLAY v
 
-          STOP RUN.
+           STOP RUN.
        END PROGRAM TTT.
