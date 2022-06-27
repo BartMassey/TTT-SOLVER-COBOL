@@ -4,7 +4,7 @@
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        COPY state.
-       01 v PIC S9.
+       01 v PIC S9 COMP.
 
        PROCEDURE DIVISION.
            CALL "NegaMax" USING

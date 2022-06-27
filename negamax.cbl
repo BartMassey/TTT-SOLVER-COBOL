@@ -3,16 +3,16 @@
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01 v0 PIC S9.
+       01 v0 PIC S9 COMP.
 
        LOCAL-STORAGE SECTION.
-       01 v PIC S9.
-       01 r PIC 9.
-       01 c PIC 9.
+       01 v PIC S9 COMP.
+       01 r PIC 9 COMP.
+       01 c PIC 9 COMP.
 
        LINKAGE SECTION.
        COPY state.
-       01 result PIC S9.
+       01 result PIC S9 COMP.
 
        PROCEDURE DIVISION USING
          BY REFERENCE state
