@@ -11,11 +11,7 @@
        01 c PIC 9.
 
        LINKAGE SECTION.
-       01 state.
-           05 on-move PIC S9.
-           05 board.
-               10 b-row OCCURS 3 TIMES.
-                   15 b-elem PIC S9 OCCURS 3 TIMES.
+       COPY state.
        01 result PIC S9.
 
        PROCEDURE DIVISION USING
