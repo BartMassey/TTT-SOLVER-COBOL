@@ -27,8 +27,8 @@
            END-IF
 
            MOVE -1 TO v
-           PERFORM TEST AFTER VARYING r FROM 1 BY 1 UNTIL r = 3
-               PERFORM TEST AFTER VARYING c FROM 1 BY 1 UNTIL c = 3
+           PERFORM VARYING r FROM 1 BY 1 UNTIL r > 3
+               PERFORM VARYING c FROM 1 BY 1 UNTIL c > 3
                    IF b-elem(r, c) EQUALS 0 THEN
       *                Evaluate move with do-undo.
                        COMPUTE on-move EQUALS -on-move

@@ -28,7 +28,7 @@
 
       *        Scan for major diagonal win.
                MOVE 0 TO n
-               PERFORM TEST AFTER VARYING d FROM 1 BY 1 UNTIL d = 3
+               PERFORM VARYING d FROM 1 BY 1 UNTIL d > 3
                    MOVE d TO r
                    MOVE d TO c
                    PERFORM CheckSquare
@@ -37,7 +37,7 @@
 
       *        Scan for minor diagonal win.
                MOVE 0 TO n
-               PERFORM TEST AFTER VARYING d FROM 1 BY 1 UNTIL d = 3
+               PERFORM VARYING d FROM 1 BY 1 UNTIL d > 3
                    MOVE d TO r
                    SUBTRACT d FROM 2 GIVING c
                    PERFORM CheckSquare
@@ -45,18 +45,18 @@
                PERFORM CheckWin
 
       *        Scan for row win.
-               PERFORM TEST AFTER VARYING r FROM 1 BY 1 UNTIL r = 3
+               PERFORM VARYING r FROM 1 BY 1 UNTIL r > 3
                    MOVE 0 TO n
-                   PERFORM TEST AFTER VARYING c FROM 1 BY 1 UNTIL c = 3
+                   PERFORM VARYING c FROM 1 BY 1 UNTIL c > 3
                        PERFORM CheckSquare
                    END-PERFORM
                    PERFORM CheckWin
                END-PERFORM
 
       *        Scan for column win.
-               PERFORM TEST AFTER VARYING c FROM 1 BY 1 UNTIL c = 3
+               PERFORM VARYING c FROM 1 BY 1 UNTIL c > 3
                    MOVE 0 TO n
-                   PERFORM TEST AFTER VARYING r FROM 1 BY 1 UNTIL r = 3
+                   PERFORM VARYING r FROM 1 BY 1 UNTIL r > 3
                        PERFORM CheckSquare
                    END-PERFORM
                    PERFORM CheckWin
@@ -65,8 +65,8 @@
            END-PERFORM
 
       *    No win was found: scan for blank.
-           PERFORM TEST AFTER VARYING r FROM 1 BY 1 UNTIL r = 3
-               PERFORM TEST AFTER VARYING c FROM 1 BY 1 UNTIL c = 3
+           PERFORM VARYING r FROM 1 BY 1 UNTIL r > 3
+               PERFORM VARYING c FROM 1 BY 1 UNTIL c > 3
                    IF b-elem(r, c) EQUALS 0 THEN
                        MOVE -2 TO result
                        EXIT PROGRAM
