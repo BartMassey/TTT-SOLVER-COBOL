@@ -23,7 +23,7 @@
            PERFORM 2 TIMES
 
       *        Set up win value.
-               COMPUTE side EQUALS -side
+               COMPUTE side EQUAL -side
                MULTIPLY side BY on-move GIVING v
 
       *        Scan for major diagonal win.
@@ -67,7 +67,7 @@
       *    No win was found: scan for blank.
            PERFORM VARYING r FROM 1 BY 1 UNTIL r > 3
                PERFORM VARYING c FROM 1 BY 1 UNTIL c > 3
-                   IF b-elem(r, c) EQUALS 0 THEN
+                   IF b-elem(r, c) EQUAL 0 THEN
                        MOVE -2 TO result
                        EXIT PROGRAM
                    END-IF
@@ -79,13 +79,13 @@
            EXIT PROGRAM.
 
            CheckWin.
-           IF n EQUALS 3 THEN
+           IF n EQUAL 3 THEN
                MOVE v TO result
                EXIT PROGRAM
            END-IF.
 
            CheckSquare.
-           IF b-elem(r, c) EQUALS side THEN
+           IF b-elem(r, c) EQUAL side THEN
                ADD 1 TO n
            END-IF.
        END PROGRAM GameValue.

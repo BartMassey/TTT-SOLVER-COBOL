@@ -29,15 +29,15 @@
            MOVE -1 TO v
            PERFORM VARYING r FROM 1 BY 1 UNTIL r > 3
                PERFORM VARYING c FROM 1 BY 1 UNTIL c > 3
-                   IF b-elem(r, c) EQUALS 0 THEN
+                   IF b-elem(r, c) EQUAL 0 THEN
       *                Evaluate move with do-undo.
-                       COMPUTE on-move EQUALS -on-move
+                       COMPUTE on-move EQUAL -on-move
                        MOVE on-move TO b-elem(r, c)
                        CALL "NegaMax" USING
                          BY REFERENCE state
                          BY REFERENCE v0
-                       COMPUTE v0 EQUALS -v0
-                       COMPUTE on-move EQUALS -on-move
+                       COMPUTE v0 EQUAL -v0
+                       COMPUTE on-move EQUAL -on-move
                        MOVE 0 TO b-elem(r, c)
 
       *                Capture maximum.

@@ -11,9 +11,9 @@ pruning, for uniformity with the other benchmarks: it thus
 requires about 1.8 seconds on my fast box.
 
 The code is as close to COBOL-85 as I can reasonably manage.
-It does use recursion, though. Recursion is really tedious
-and hard to avoid for this; also, benchmark comparability is
-better this way.
+It does use recursion for negamax, though. Recursion is
+really tedious and hard to avoid for this; also, benchmark
+comparability is better this way.
 
 I am a COBOL novice. Issues and PRs are welcome.
 

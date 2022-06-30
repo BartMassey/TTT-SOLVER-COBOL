@@ -1,5 +1,7 @@
 COBC = cobc
 # COBFLAGS = -Wall -debug
+# Can use -std=cobol85 to check compatibility,
+# except not for negamax.cbl which is recursive.
 COBFLAGS = -Wall -O3
 
 OBJS = ttt.o negamax.o gamevalue.o 
